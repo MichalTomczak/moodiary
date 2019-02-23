@@ -1,0 +1,13 @@
+.moodBlock {
+    display: inline-block;
+    padding: 16px;
+    text-align: center;
+    margin: 16px;
+    border: 1px solid black;
+    width: 145px;
+}
+
+.selected {
+    background-color: red;
+    color: white;
+}
