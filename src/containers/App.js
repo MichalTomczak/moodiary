@@ -61,18 +61,24 @@ class App extends Component {
         {id: 'ih3fr', moodName: 'zaklopotanie', selected: false}
     ];
     state = {
-        moods: this.defaultMoods
+        moods: this.defaultMoods,
     };
 
     setToday = () => {
         const currentDate = new Date();
         const Today = currentDate.toISOString().split('T')[0];
-        this.setState({currentDate: Today});
+        this.setState({
+                currentDate: Today
+            },
+            this.populateStateFromLocalStorage);
     };
 
     updateDateHandler = (event) => {
         const newDate = event.target.value;
-        this.setState({currentDate: newDate});
+        this.setState({
+                currentDate: newDate
+            },
+            this.populateStateFromLocalStorage);
 
     };
 
@@ -93,18 +99,12 @@ class App extends Component {
         const retrievedData = JSON.parse(localStorage.getItem(this.state.currentDate));
         if (retrievedData)
             this.setState({moods: retrievedData});
+        else
+            this.setState({moods: this.defaultMoods});
     };
-
-    provideDataForCurrentDate = (event) => {
-        this.updateDateHandler(event);
-        this.populateStateFromLocalStorage();
-    };
-
-
 
     componentDidMount() {
         this.setToday();
-        this.populateStateFromLocalStorage();
     }
 
     render() {
@@ -117,7 +117,7 @@ class App extends Component {
                     allMoods={this.state.moods}
                 />
                 <DatePicker
-                    changed={(event) => this.provideDataForCurrentDate(event)}
+                    changed={(event) => this.updateDateHandler(event)}
                     value={this.state.currentDate}
                 />
                 <Confirmation

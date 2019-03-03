@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="adebb145-e8e2-430b-9005-3aef1fdf8313" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/App.js" afterPath="$PROJECT_DIR$/src/containers/App.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,8 +51,8 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/containers/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="119" column="76" lean-forward="false" selection-start-line="119" selection-start-column="76" selection-end-line="119" selection-end-column="76" />
+            <state relative-caret-position="215">
+              <caret line="102" column="54" lean-forward="false" selection-start-line="102" selection-start-column="54" selection-end-line="102" selection-end-column="54" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
                 <element signature="e#287#3569#0" expanded="false" />
@@ -428,7 +429,7 @@
       <workItem from="1550776034922" duration="18368000" />
       <workItem from="1551442398841" duration="5565000" />
       <workItem from="1551595702325" duration="67000" />
-      <workItem from="1551596898366" duration="2467000" />
+      <workItem from="1551596898366" duration="4351000" />
     </task>
     <task id="LOCAL-00001" summary="MVP selecting moods, selecting date, saving selections per date, retrieving selection from saved storage.">
       <created>1550910914525</created>
@@ -444,11 +445,18 @@
       <option name="project" value="LOCAL" />
       <updated>1551599528656</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fixed async state population problems, added populating data for today.">
+      <created>1551599560040</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1551599560040</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26467000" />
+    <option name="totallyTimeSpent" value="28351000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="751" width="1440" height="900" extended-state="0" />
@@ -777,8 +785,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="119" column="76" lean-forward="false" selection-start-line="119" selection-start-column="76" selection-end-line="119" selection-end-column="76" />
+        <state relative-caret-position="215">
+          <caret line="102" column="54" lean-forward="false" selection-start-line="102" selection-start-column="54" selection-end-line="102" selection-end-column="54" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="e#287#3569#0" expanded="false" />
