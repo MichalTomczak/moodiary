@@ -17,7 +17,6 @@ const datepicker = props => {
             />
         </div>
     )
-
 };
 
 export default datepicker
