@@ -10,8 +10,10 @@ const mood = props => {
     else classes = styles.selected + ' ' + styles.moodBlock;
 
     return (
-        <div onClick={props.clicked} className={classes}>{props.moodName}</div>
-    )
+        <div onClick={props.clicked} className={classes}>
+            {props.moodName}
+        </div>
+    );
 };
 
 export default mood;
