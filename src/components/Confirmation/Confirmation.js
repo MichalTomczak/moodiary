@@ -4,9 +4,7 @@
 import React from 'react';
 
 const confirmation = props => {
-    return (
-        <button onClick={props.saveData}>Zapisz wybór</button>
-    )
+    return <button onClick={props.saveData}>Zapisz wybór</button>;
 };
 
 export default confirmation;

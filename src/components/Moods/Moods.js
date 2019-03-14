@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import Mood from './Mood/Mood'
+import Mood from './Mood/Mood';
 
 const moods = props => {
     return props.allMoods.map((mood, index) => {
@@ -15,7 +15,6 @@ const moods = props => {
             />
         );
     });
-
 };
 
 export default moods;
