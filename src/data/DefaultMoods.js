@@ -1,12 +1,10 @@
-import React, {Component} from 'react';
-import './App.css';
-import Moods from '../components/Moods/Moods';
-import DatePicker from '../components/DatePicker/DatePicker';
-import Confirmation from '../components/Confirmation/Confirmation'
+/**
+ * Created by Grucha on 07/03/2019.
+ */
 
-class App extends Component {
+const defaultmoods = () => {
 
-    defaultMoods = [
+    return [
         {id: 'hgo9z', moodName: 'gniew', selected: false},
         {id: '8ymb0', moodName: 'nienawisc', selected: false},
         {id: 'z9arl', moodName: 'obraza', selected: false},
@@ -60,72 +58,7 @@ class App extends Component {
         {id: 'zxfvb', moodName: 'wyrzuty sumienia', selected: false},
         {id: 'ih3fr', moodName: 'zaklopotanie', selected: false}
     ];
-    state = {
-        moods: this.defaultMoods,
-    };
 
-    setToday = () => {
-        const currentDate = new Date();
-        const Today = currentDate.toISOString().split('T')[0];
-        this.setState({
-                currentDate: Today
-            },
-            this.populateStateFromLocalStorage);
-    };
+};
 
-    updateDateHandler = (event) => {
-        const newDate = event.target.value;
-        this.setState({
-                currentDate: newDate
-            },
-            this.populateStateFromLocalStorage);
-
-    };
-
-    selectMoodHandler = (id) => {
-
-        const moods = [...this.state.moods];
-        const selectedState = moods[id].selected;
-        moods[id].selected = !selectedState;
-
-        this.setState({moods: moods});
-    };
-
-    saveDataHandler = () => {
-        localStorage.setItem(this.state.currentDate, JSON.stringify(this.state.moods));
-    };
-
-    populateStateFromLocalStorage = () => {
-        const retrievedData = JSON.parse(localStorage.getItem(this.state.currentDate));
-        if (retrievedData)
-            this.setState({moods: retrievedData});
-        else
-            this.setState({moods: this.defaultMoods});
-    };
-
-    componentDidMount() {
-        this.setToday();
-    }
-
-    render() {
-
-
-        return (
-            <div>
-                <Moods
-                    clicked={this.selectMoodHandler}
-                    allMoods={this.state.moods}
-                />
-                <DatePicker
-                    changed={(event) => this.updateDateHandler(event)}
-                    value={this.state.currentDate}
-                />
-                <Confirmation
-                    saveData={this.saveDataHandler}
-                />
-            </div>
-        )
-    }
-}
-
-export default App;
+export default defaultmoods

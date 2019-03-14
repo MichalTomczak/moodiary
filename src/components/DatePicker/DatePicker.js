@@ -19,4 +19,5 @@ const datepicker = props => {
     )
 };
 
-export default datepicker
+
+export default datepicker;
