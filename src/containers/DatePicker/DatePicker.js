@@ -9,9 +9,12 @@ class newDatePicker extends Component {
 
     constructor(props) {
         super(props);
+
         let day = Number(props.currentDate.split('-')[2]);
         let month = Number(props.currentDate.split('-')[1]);
         let year = Number(props.currentDate.split('-')[0]);
+
+        this.months = Months();
 
         this.state = {
             day: day,
@@ -23,29 +26,33 @@ class newDatePicker extends Component {
 
     }
 
-    months = Months();
 
-    daysInMonth = (month, year) => {
-        this.setState({daysInMonth: new Date(year, month, 0).getDate()});
+    getDaysInMonth = (month, year) => {
+        return new Date(year, month, 0).getDate()
     };
 
     updateDate = (event) => {
+        let eventProps = [event.target.name, Number(event.target.value)];
+        let year = eventProps[0] === 'year' ? eventProps[1] : this.state.year,
+            month = eventProps[0] === 'month' ? eventProps[1] : this.state.month,
+            day = eventProps[0] === 'day' ? eventProps[1] : this.state.day,
+            daysInMonth = this.getDaysInMonth(month, year);
+        if (day > daysInMonth) day = daysInMonth;
+
         this.setState({
-                [event.target.name]: Number(event.target.value)
+                year: year,
+                month: month,
+                day: day,
+                daysInMonth: daysInMonth
             },
             () => {
-
-                let year = this.state.year;
-                let month = this.state.month < 10 ? '0' + this.state.month : this.state.month;
-                let day = this.state.day < 10 ? '0' + this.state.day : this.state.day;
-                this.daysInMonth(this.state.month, this.state.year);
+                if (this.state.month < 10) month = '0' + this.state.month;
+                if (this.state.day < 10) day = '0' + this.state.day;
                 this.props.changed(year + '-' + month + '-' + day);
-
             }
         )
 
     };
-
 
     createDaysList = () => {
         let returnedDays = [];
@@ -59,6 +66,7 @@ class newDatePicker extends Component {
     render = () => {
         return (
             <div className={styles.dateBlock}>
+
                 <button
                     onClick={this.updateDate}
                     name="month" value={+this.state.month - 1}

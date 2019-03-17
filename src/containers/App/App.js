@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
 import Moods from '../../components/Moods/Moods';
-import DatePicker from '../../components/DatePicker/DatePicker';
 import Confirmation from '../../components/Confirmation/Confirmation';
 import DefaultMoods from '../../data/DefaultMoods';
-import NewDatePicker from '../NewDatePicker/NewDatePicker';
+import NewDatePicker from '../DatePicker/DatePicker';
 
 class App extends Component {
 
@@ -17,16 +16,7 @@ class App extends Component {
         };
     }
 
-
-    updateDateHandler = (event) => {
-        this.setState({
-                currentDate: event.target.value
-            },
-            this.getDataFromStorage
-        );
-    };
-
-    NewUpdateDateHandler = (date) => {
+    UpdateDateHandler = (date) => {
         this.setState({
                 currentDate: date
             },
@@ -61,16 +51,14 @@ class App extends Component {
                     clicked={this.selectMoodHandler}
                     allMoods={this.state.moods}
                 />
-                <DatePicker
-                    changed={(event) => this.updateDateHandler(event)}
-                    value={this.state.currentDate}
-                />
-                <Confirmation
-                    saveData={this.pushDataToStorage}
-                />
+
                 <NewDatePicker
                     currentDate={this.state.currentDate}
-                    changed={this.NewUpdateDateHandler}
+                    changed={this.UpdateDateHandler}
+                />
+
+                <Confirmation
+                    saveData={this.pushDataToStorage}
                 />
             </div>
         )
