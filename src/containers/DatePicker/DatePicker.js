@@ -22,8 +22,6 @@ class newDatePicker extends Component {
             year: year,
             daysInMonth: new Date(year, month, 0).getDate()
         };
-
-
     }
 
 
@@ -51,7 +49,6 @@ class newDatePicker extends Component {
                 this.props.changed(year + '-' + month + '-' + day);
             }
         )
-
     };
 
     createDaysList = () => {
@@ -66,7 +63,6 @@ class newDatePicker extends Component {
     render = () => {
         return (
             <div className={styles.dateBlock}>
-
                 <button
                     onClick={this.updateDate}
                     name="month" value={+this.state.month - 1}
@@ -102,11 +98,9 @@ class newDatePicker extends Component {
                 <button
                     onClick={this.updateDate}
                     name="month" value={+this.state.month + 1} disabled={this.state.month === 12}>&gt;&gt;</button>
-
             </div>
         )
     }
-
 }
 
 export default newDatePicker;
